@@ -7,6 +7,7 @@ using Northwind.Application.Employees.Queries.GetEmployeesList;
 using Northwind.Application.Products.Queries.GetProductDetail;
 using Northwind.Application.Products.Queries.GetProductsFile;
 using Northwind.Application.Products.Queries.GetProductsList;
+using Northwind.Application.Regions.Queries.GetRegionsList;
 using Northwind.Domain.Entities;
 using Shouldly;
 using Xunit;
@@ -116,6 +117,17 @@ namespace Northwind.Application.UnitTests.Mappings
 
             result.ShouldNotBeNull();
             result.ShouldBeOfType<EmployeeTerritoryDto>();
+        }
+
+        [Fact]
+        public void ShouldMapRegionToRegionDto()
+        {
+            var entity = new Region();
+
+            var result = _mapper.Map<RegionDto>(entity);
+
+            result.ShouldNotBeNull();
+            result.ShouldBeOfType<RegionDto>();
         }
     }
 }
